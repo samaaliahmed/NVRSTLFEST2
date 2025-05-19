@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NVRSTL Festival</title>
+  <style>
+    body {
+      background: #070000;
+      color: #e0ffe0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .phrase {
+      font-size: 1.5em;
+      margin: 20px 0;
+      color: #f2eef4;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 1em;
+      width: 250px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 15px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      background-color: #691f5a;
+      color: #f1eded;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #430737;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #f3f6f5;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="nvrstill02.jpg" alt="NVRSTL Festival Poster">
+
+  <div class="phrase">Trade a Track for a Cigarette</div>
+
+  <input type="text" id="answerBox" placeholder="Type your track here...">
+  <button onclick="showMessage()">Submit</button>
+
+  <div class="result" id="resultMessage"></div>
+
+  <script>
+  function showMessage() {
+    const input = document.getElementById('answerBox').value.trim();
+    if (input !== "") {
+      // Save to local storage (as a list)
+      let savedAnswers = JSON.parse(localStorage.getItem("answers")) || [];
+      savedAnswers.push(input);
+      localStorage.setItem("answers", JSON.stringify(savedAnswers));
+
+      document.getElementById('resultMessage').textContent = "Thank U. Get the fuck  back to  dance floor.";
+      document.getElementById('answerBox').value = "";
+    } else {
+      document.getElementById('resultMessage').textContent = "Say something first!";
+    }
+  }
+</script>
+
+
+</body>
+</html>
